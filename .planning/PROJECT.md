@@ -14,7 +14,7 @@ One-click meeting recording → structured AI analysis in a Markdown file you ca
 
 <!-- Shipped and confirmed valuable. -->
 
-(None yet — ship to validate)
+- [x] In-app settings to configure API keys (STT provider, AI provider) — Validated in Phase 1
 
 ### Active
 
@@ -27,7 +27,6 @@ One-click meeting recording → structured AI analysis in a Markdown file you ca
 - [ ] AI analysis extracts: summary, action items, decisions, key topics
 - [ ] Export analysis results as Markdown files to a configurable output folder
 - [ ] Full window app with dashboard showing recording history and status
-- [ ] In-app settings to configure API keys (STT provider, AI provider)
 - [ ] Installable Mac application (DMG or similar distributable)
 
 ### Out of Scope
@@ -85,4 +84,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-04-06 after initialization*
+*Last updated: 2026-04-06 after Phase 1 completion*
