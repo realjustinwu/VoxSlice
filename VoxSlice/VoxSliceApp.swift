@@ -33,6 +33,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 struct VoxSliceApp: App {
     // Per D-16: Register AppDelegate to manage permissions window
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    @State private var storageService = StorageService()
 
     var body: some Scene {
         MenuBarExtra("VoxSlice", systemImage: "waveform.circle") {
@@ -41,8 +42,7 @@ struct VoxSliceApp: App {
         .menuBarExtraStyle(.menu)
 
         Settings {
-            Text("Settings placeholder")
-                .frame(width: 520, height: 420)
+            SettingsView(storageService: storageService)
         }
     }
 }

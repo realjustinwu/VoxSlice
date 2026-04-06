@@ -14,6 +14,13 @@
 			A1000105000000000000001 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000207000000000000001 /* StorageService.swift */; };
 			A1000106000000000000001 /* PermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000208000000000000001 /* PermissionManager.swift */; };
 			A1000107000000000000001 /* PermissionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000209000000000000001 /* PermissionsView.swift */; };
+
+				A1000108000000000000001 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000210000000000000001 /* Provider.swift */; };
+				A1000109000000000000001 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000211000000000000001 /* KeychainService.swift */; };
+				A1000110000000000000001 /* ProviderValidationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000212000000000000001 /* ProviderValidationService.swift */; };
+				A1000111000000000000001 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000213000000000000001 /* SettingsView.swift */; };
+				A1000112000000000000001 /* GeneralSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000214000000000000001 /* GeneralSettingsView.swift */; };
+				A1000113000000000000001 /* ProviderSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000215000000000000001 /* ProviderSettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +33,13 @@
 			A1000207000000000000001 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 			A1000208000000000000001 /* PermissionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionManager.swift; sourceTree = "<group>"; };
 			A1000209000000000000001 /* PermissionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsView.swift; sourceTree = "<group>"; };
+
+				A1000210000000000000001 /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
+				A1000211000000000000001 /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
+				A1000212000000000000001 /* ProviderValidationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderValidationService.swift; sourceTree = "<group>"; };
+				A1000213000000000000001 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+				A1000214000000000000001 /* GeneralSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettingsView.swift; sourceTree = "<group>"; };
+				A1000215000000000000001 /* ProviderSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderSettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +74,7 @@
 				children = (
 					A1000201000000000000001 /* VoxSliceApp.swift */,
 					A1000503000000000000001 /* Views */,
+					A1000508000000000000001 /* Models */,
 					A1000506000000000000001 /* Utils */,
 					A1000507000000000000001 /* Services */,
 					A1000203000000000000001 /* Assets.xcassets */,
@@ -73,6 +88,7 @@
 				children = (
 					A1000202000000000000001 /* MenuBarView.swift */,
 					A1000209000000000000001 /* PermissionsView.swift */,
+					A1000509000000000000001 /* Settings */,
 				);
 				path = Views;
 				sourceTree = "<group>";
@@ -90,10 +106,30 @@
 				children = (
 					A1000207000000000000001 /* StorageService.swift */,
 					A1000208000000000000001 /* PermissionManager.swift */,
+					A1000211000000000000001 /* KeychainService.swift */,
+					A1000212000000000000001 /* ProviderValidationService.swift */,
 				);
 				path = Services;
 				sourceTree = "<group>";
 			};
+				A1000508000000000000001 /* Models */ = {
+					isa = PBXGroup;
+					children = (
+						A1000210000000000000001 /* Provider.swift */,
+					);
+					path = Models;
+					sourceTree = "<group>";
+				};
+				A1000509000000000000001 /* Settings */ = {
+					isa = PBXGroup;
+					children = (
+						A1000213000000000000001 /* SettingsView.swift */,
+						A1000214000000000000001 /* GeneralSettingsView.swift */,
+						A1000215000000000000001 /* ProviderSettingsView.swift */,
+					);
+					path = Settings;
+					sourceTree = "<group>";
+				};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -169,6 +205,12 @@
 					A1000105000000000000001 /* StorageService.swift in Sources */,
 					A1000106000000000000001 /* PermissionManager.swift in Sources */,
 					A1000107000000000000001 /* PermissionsView.swift in Sources */,
+					A1000108000000000000001 /* Provider.swift in Sources */,
+					A1000109000000000000001 /* KeychainService.swift in Sources */,
+					A1000110000000000000001 /* ProviderValidationService.swift in Sources */,
+					A1000111000000000000001 /* SettingsView.swift in Sources */,
+					A1000112000000000000001 /* GeneralSettingsView.swift in Sources */,
+					A1000113000000000000001 /* ProviderSettingsView.swift in Sources */,
 				);
 				runOnlyForDeploymentPostprocessing = 0;
 			};
