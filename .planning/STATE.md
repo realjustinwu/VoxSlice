@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: executing
-stopped_at: Completed 01-02-PLAN.md
-last_updated: "2026-04-06T10:18:00.000Z"
+status: verifying
+stopped_at: Completed 01-03-PLAN.md
+last_updated: "2026-04-06T11:00:19.319Z"
 last_activity: 2026-04-06
 progress:
   total_phases: 6
-  completed_phases: 0
+  completed_phases: 1
   total_plans: 3
-  completed_plans: 2
-  percent: 66
+  completed_plans: 3
+  percent: 100
 ---
 
 # Project State
@@ -27,7 +27,7 @@ See: .planning/PROJECT.md (updated 2026-04-06)
 
 Phase: 01 (app-shell-permissions-settings) -- EXECUTING
 Plan: 3 of 3 (next: 01-03-PLAN.md - Settings window)
-Status: Ready to execute Plan 03
+Status: Phase complete — ready for verification
 Last activity: 2026-04-06
 
 Progress: [==........] 20%
@@ -54,6 +54,7 @@ Progress: [==........] 20%
 *Updated after each plan completion*
 | Phase 01 P01 | 9min | 2 tasks | 9 files |
 | Phase 01 P02 | 8min | 2 tasks | 4 files |
+| Phase 01 P03 | 1min | 2 tasks | 8 files |
 
 ## Accumulated Context
 
@@ -69,6 +70,9 @@ Recent decisions affecting current work:
 - [Phase 01]: Raised deployment target from macOS 13.0 to macOS 14.0 because SettingsLink requires macOS 14+
 - [Phase 01 P02]: Used AppDelegate with NSApplicationDelegateAdaptor for permissions window lifecycle (SwiftUI App protocol lacks imperative window management)
 - [Phase 01 P02]: Used CGPreflightScreenCaptureAccess() for read-only check, not CGRequestScreenCaptureAccess() which triggers system prompt
+- [Phase 01]: Used Security framework directly for Keychain (no third-party dependency) per D-11
+- [Phase 01]: API keys saved to Keychain only after successful validation, not on every keystroke
+- [Phase 01]: HTTPS scheme enforced on custom endpoint URLs to prevent credential leakage (T-01-08)
 
 ### Pending Todos
 
@@ -80,6 +84,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-04-06T10:18:00.000Z
-Stopped at: Completed 01-02-PLAN.md
+Last session: 2026-04-06T11:00:19.317Z
+Stopped at: Completed 01-03-PLAN.md
 Resume file: None

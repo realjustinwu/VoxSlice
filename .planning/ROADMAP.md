@@ -12,7 +12,7 @@ VoxSlice goes from an empty Xcode project to a distributable Mac app that record
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: App Shell + Permissions + Settings** - Menu bar app lifecycle, macOS permission handling, and settings with secure API key storage
+- [x] **Phase 1: App Shell + Permissions + Settings** - Menu bar app lifecycle, macOS permission handling, and settings with secure API key storage (completed 2026-04-06)
 - [ ] **Phase 2: Audio Capture Engine** - Dual-stream system audio + microphone recording with health monitoring
 - [ ] **Phase 3: Transcription Pipeline** - Multi-provider STT with chunking, timestamps, and speaker diarization
 - [ ] **Phase 4: AI Analysis + Markdown Output** - Structured meeting analysis and configurable Markdown export
@@ -30,12 +30,12 @@ Decimal phases appear between their surrounding integers in numeric order.
   2. User is prompted for Screen Recording and Microphone permissions with clear explanations, and the app handles the restart requirement for Screen Recording permission correctly
   3. User can open Settings and enter API keys for STT provider and AI provider, with keys stored securely in macOS Keychain (not UserDefaults)
   4. User can select and validate their STT provider choice in settings
-**Plans:** 3 plans in 3 waves
+**Plans:** 3/3 plans complete
 
 Plans:
 - [x] 01-01-PLAN.md — Xcode project scaffolding + menu bar app shell
 - [x] 01-02-PLAN.md — Permission handling with card-based UI and restart flow
-- [ ] 01-03-PLAN.md — Settings window with Keychain, multi-provider config, and API key validation
+- [x] 01-03-PLAN.md — Settings window with Keychain, multi-provider config, and API key validation
 
 ### Phase 2: Audio Capture Engine
 **Goal**: Users can record both microphone and system audio simultaneously with visual feedback that recording is active
@@ -100,7 +100,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. App Shell + Permissions + Settings | 2/3 | Executing | - |
+| 1. App Shell + Permissions + Settings | 3/3 | Complete   | 2026-04-06 |
 | 2. Audio Capture Engine | 0/? | Not started | - |
 | 3. Transcription Pipeline | 0/? | Not started | - |
 | 4. AI Analysis + Markdown Output | 0/? | Not started | - |
