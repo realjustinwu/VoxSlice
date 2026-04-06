@@ -30,7 +30,12 @@ Decimal phases appear between their surrounding integers in numeric order.
   2. User is prompted for Screen Recording and Microphone permissions with clear explanations, and the app handles the restart requirement for Screen Recording permission correctly
   3. User can open Settings and enter API keys for STT provider and AI provider, with keys stored securely in macOS Keychain (not UserDefaults)
   4. User can select and validate their STT provider choice in settings
-**Plans**: TBD
+**Plans:** 3 plans in 3 waves
+
+Plans:
+- [ ] 01-01-PLAN.md — Xcode project scaffolding + menu bar app shell
+- [ ] 01-02-PLAN.md — Permission handling with card-based UI and restart flow
+- [ ] 01-03-PLAN.md — Settings window with Keychain, multi-provider config, and API key validation
 
 ### Phase 2: Audio Capture Engine
 **Goal**: Users can record both microphone and system audio simultaneously with visual feedback that recording is active
@@ -95,7 +100,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. App Shell + Permissions + Settings | 0/? | Not started | - |
+| 1. App Shell + Permissions + Settings | 0/3 | Planned | - |
 | 2. Audio Capture Engine | 0/? | Not started | - |
 | 3. Transcription Pipeline | 0/? | Not started | - |
 | 4. AI Analysis + Markdown Output | 0/? | Not started | - |
