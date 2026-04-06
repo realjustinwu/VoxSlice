@@ -10,6 +10,8 @@
 		A1000101000000000000001 /* VoxSliceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000201000000000000001 /* VoxSliceApp.swift */; };
 		A1000102000000000000001 /* MenuBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000202000000000000001 /* MenuBarView.swift */; };
 		A1000103000000000000001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1000203000000000000001 /* Assets.xcassets */; };
+		A1000104000000000000001 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000206000000000000001 /* Constants.swift */; };
+		A1000105000000000000001 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000207000000000000001 /* StorageService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,6 +20,8 @@
 		A1000202000000000000001 /* MenuBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarView.swift; sourceTree = "<group>"; };
 		A1000203000000000000001 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A1000205000000000000001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1000206000000000000001 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A1000207000000000000001 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +56,8 @@
 			children = (
 				A1000201000000000000001 /* VoxSliceApp.swift */,
 				A1000503000000000000001 /* Views */,
+				A1000506000000000000001 /* Utils */,
+				A1000507000000000000001 /* Services */,
 				A1000203000000000000001 /* Assets.xcassets */,
 				A1000205000000000000001 /* Info.plist */,
 			);
@@ -64,6 +70,22 @@
 				A1000202000000000000001 /* MenuBarView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		A1000506000000000000001 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				A1000206000000000000001 /* Constants.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		A1000507000000000000001 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A1000207000000000000001 /* StorageService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +159,8 @@
 			files = (
 				A1000101000000000000001 /* VoxSliceApp.swift in Sources */,
 				A1000102000000000000001 /* MenuBarView.swift in Sources */,
+				A1000104000000000000001 /* Constants.swift in Sources */,
+				A1000105000000000000001 /* StorageService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
