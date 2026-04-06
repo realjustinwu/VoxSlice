@@ -33,7 +33,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans:** 3 plans in 3 waves
 
 Plans:
-- [ ] 01-01-PLAN.md — Xcode project scaffolding + menu bar app shell
+- [x] 01-01-PLAN.md — Xcode project scaffolding + menu bar app shell
 - [ ] 01-02-PLAN.md — Permission handling with card-based UI and restart flow
 - [ ] 01-03-PLAN.md — Settings window with Keychain, multi-provider config, and API key validation
 

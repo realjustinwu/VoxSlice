@@ -41,7 +41,7 @@ Requirements for initial release. Each maps to roadmap phases.
 
 - [ ] **UIUX-01**: Full window dashboard showing recording history with status
 - [ ] **UIUX-02**: Settings screen for selecting STT provider, managing API keys, and configuring local models with validation
-- [ ] **UIUX-03**: Menu bar integration for quick access to recording controls
+- [x] **UIUX-03**: Menu bar integration for quick access to recording controls
 - [ ] **UIUX-04**: Audio playback synced to transcript position (click transcript to hear that moment)
 
 ### Distribution
@@ -105,7 +105,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | OUTP-03 | Phase 4 | Pending |
 | UIUX-01 | Phase 5 | Pending |
 | UIUX-02 | Phase 1 | Pending |
-| UIUX-03 | Phase 1 | Pending |
+| UIUX-03 | Phase 1 | Complete |
 | UIUX-04 | Phase 5 | Pending |
 | DIST-01 | Phase 6 | Pending |
 
