@@ -34,7 +34,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 Plans:
 - [x] 01-01-PLAN.md — Xcode project scaffolding + menu bar app shell
-- [ ] 01-02-PLAN.md — Permission handling with card-based UI and restart flow
+- [x] 01-02-PLAN.md — Permission handling with card-based UI and restart flow
 - [ ] 01-03-PLAN.md — Settings window with Keychain, multi-provider config, and API key validation
 
 ### Phase 2: Audio Capture Engine
@@ -100,7 +100,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. App Shell + Permissions + Settings | 0/3 | Planned | - |
+| 1. App Shell + Permissions + Settings | 2/3 | Executing | - |
 | 2. Audio Capture Engine | 0/? | Not started | - |
 | 3. Transcription Pipeline | 0/? | Not started | - |
 | 4. AI Analysis + Markdown Output | 0/? | Not started | - |
