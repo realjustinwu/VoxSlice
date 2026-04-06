@@ -85,35 +85,35 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| RECD-01 | — | Pending |
-| RECD-02 | — | Pending |
-| RECD-03 | — | Pending |
-| RECD-04 | — | Pending |
-| RECD-05 | — | Pending |
-| TRSC-01 | — | Pending |
-| TRSC-02 | — | Pending |
-| TRSC-03 | — | Pending |
-| TRSC-04 | — | Pending |
-| TRSC-05 | — | Pending |
-| ANLY-01 | — | Pending |
-| ANLY-02 | — | Pending |
-| ANLY-03 | — | Pending |
-| ANLY-04 | — | Pending |
-| ANLY-05 | — | Pending |
-| OUTP-01 | — | Pending |
-| OUTP-02 | — | Pending |
-| OUTP-03 | — | Pending |
-| UIUX-01 | — | Pending |
-| UIUX-02 | — | Pending |
-| UIUX-03 | — | Pending |
-| UIUX-04 | — | Pending |
-| DIST-01 | — | Pending |
+| RECD-01 | Phase 6 | Pending |
+| RECD-02 | Phase 2 | Pending |
+| RECD-03 | Phase 2 | Pending |
+| RECD-04 | Phase 2 | Pending |
+| RECD-05 | Phase 1 | Pending |
+| TRSC-01 | Phase 3 | Pending |
+| TRSC-02 | Phase 3 | Pending |
+| TRSC-03 | Phase 3 | Pending |
+| TRSC-04 | Phase 3 | Pending |
+| TRSC-05 | Phase 3 | Pending |
+| ANLY-01 | Phase 4 | Pending |
+| ANLY-02 | Phase 4 | Pending |
+| ANLY-03 | Phase 4 | Pending |
+| ANLY-04 | Phase 4 | Pending |
+| ANLY-05 | Phase 4 | Pending |
+| OUTP-01 | Phase 4 | Pending |
+| OUTP-02 | Phase 4 | Pending |
+| OUTP-03 | Phase 4 | Pending |
+| UIUX-01 | Phase 5 | Pending |
+| UIUX-02 | Phase 1 | Pending |
+| UIUX-03 | Phase 1 | Pending |
+| UIUX-04 | Phase 5 | Pending |
+| DIST-01 | Phase 6 | Pending |
 
 **Coverage:**
 - v1 requirements: 23 total
-- Mapped to phases: 0
-- Unmapped: 23 ⚠️
+- Mapped to phases: 23
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-04-06*
-*Last updated: 2026-04-06 after initial definition*
+*Last updated: 2026-04-06 after roadmap creation*
