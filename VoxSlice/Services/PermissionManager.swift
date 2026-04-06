@@ -9,6 +9,9 @@ final class PermissionManager {
     var screenRecordingGranted = false
     var microphoneGranted = false
     var showRestartAlert = false
+    var microphonePromptShown = false
+    var screenRecordingPromptShown = false
+    private var restartAlertShown = false
 
     /// Whether all required permissions are granted
     var allPermissionsGranted: Bool {
@@ -30,23 +33,29 @@ final class PermissionManager {
         checkMicrophonePermission()
     }
 
-    /// Screen Recording permission check using CGPreflightScreenCaptureAccess per D-18
-    /// This checks if the app has been granted screen recording access without triggering a prompt
+    /// Screen Recording permission check.
+    /// CGPreflightScreenCaptureAccess() is the only truly side-effect-free check.
+    /// CGWindowListCreateImage and SCShareableContent both trigger system dialogs.
     func checkScreenRecordingPermission() {
         let previousState = screenRecordingGranted
-        // CGPreflightScreenCaptureAccess returns true if permission is already granted
-        // It does NOT trigger the system prompt (that's CGRequestScreenCaptureAccess)
         screenRecordingGranted = CGPreflightScreenCaptureAccess()
 
-        // Per D-19: If screen recording was just granted (was false, now true), show restart alert
-        if !previousState && screenRecordingGranted {
+        if !previousState && screenRecordingGranted && !restartAlertShown {
             showRestartAlert = true
+            restartAlertShown = true
         }
     }
 
     /// Microphone permission check
     func checkMicrophonePermission() {
         microphoneGranted = AVAudioApplication.shared.recordPermission == .granted
+    }
+
+    /// Request Screen Recording permission (triggers system dialog, registers app in privacy list)
+    func requestScreenRecordingPermission() {
+        screenRecordingPromptShown = true
+        // CGRequestScreenCaptureAccess shows the system prompt and adds app to the list
+        screenRecordingGranted = CGRequestScreenCaptureAccess()
     }
 
     /// Open System Settings to Screen Recording pane per D-17 deep link
@@ -65,8 +74,9 @@ final class PermissionManager {
         }
     }
 
-    /// Request microphone permission (triggers system prompt)
+    /// Request microphone permission (triggers system prompt, registers app in privacy list)
     func requestMicrophonePermission() async -> Bool {
+        microphonePromptShown = true
         let granted = await AVAudioApplication.requestRecordPermission()
         microphoneGranted = granted
         return granted

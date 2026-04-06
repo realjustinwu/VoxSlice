@@ -346,6 +346,7 @@
 					GENERATE_INFOPLIST_FILE = NO;
 					INFOPLIST_FILE = VoxSlice/Info.plist;
 					INFOPLIST_KEY_NSHumanReadableCopyright = "";
+					OTHER_LDFLAGS = "-framework ScreenCaptureKit";
 					LD_RUNPATH_SEARCH_PATHS = (
 						"$(inherited)",
 						"@executable_path/../Frameworks",
@@ -372,6 +373,7 @@
 					GENERATE_INFOPLIST_FILE = NO;
 					INFOPLIST_FILE = VoxSlice/Info.plist;
 					INFOPLIST_KEY_NSHumanReadableCopyright = "";
+					OTHER_LDFLAGS = "-framework ScreenCaptureKit";
 					LD_RUNPATH_SEARCH_PATHS = (
 						"$(inherited)",
 						"@executable_path/../Frameworks",

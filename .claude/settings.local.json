@@ -9,7 +9,10 @@
       "WebSearch",
       "Bash(sw_vers)",
       "Bash(xcodebuild -version)",
-      "Bash(swift --version)"
+      "Bash(swift --version)",
+      "Bash(xcodebuild -project VoxSlice.xcodeproj -scheme VoxSlice -configuration Debug build)",
+      "Bash(cat /Users/wuchengbin/Workspace/VoxSlice/.planning/phases/01-app-shell-permissions-settings/*-VERIFICATION.md)",
+      "Bash(echo \"EXIT_CODE=$?\")"
     ]
   }
 }

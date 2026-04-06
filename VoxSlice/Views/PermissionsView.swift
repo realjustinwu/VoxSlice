@@ -22,8 +22,13 @@ struct PermissionsView: View {
                     title: "Screen Recording",
                     description: "VoxSlice needs screen recording access to capture system audio from meeting apps like Zoom and Google Meet.",
                     isGranted: permissionManager.screenRecordingGranted,
+                    buttonTitle: permissionManager.screenRecordingPromptShown ? "Open System Settings" : "Grant Permission",
                     openSettingsAction: {
-                        permissionManager.openScreenRecordingSettings()
+                        if !permissionManager.screenRecordingPromptShown {
+                            permissionManager.requestScreenRecordingPermission()
+                        } else {
+                            permissionManager.openScreenRecordingSettings()
+                        }
                     }
                 )
 
@@ -32,8 +37,15 @@ struct PermissionsView: View {
                     title: "Microphone",
                     description: "VoxSlice needs microphone access to record your voice during meetings.",
                     isGranted: permissionManager.microphoneGranted,
+                    buttonTitle: permissionManager.microphonePromptShown ? "Open System Settings" : "Grant Permission",
                     openSettingsAction: {
-                        permissionManager.openMicrophoneSettings()
+                        if !permissionManager.microphonePromptShown {
+                            Task {
+                                await permissionManager.requestMicrophonePermission()
+                            }
+                        } else {
+                            permissionManager.openMicrophoneSettings()
+                        }
                     }
                 )
             }
@@ -75,6 +87,7 @@ struct PermissionCard: View {
     let title: String
     let description: String
     let isGranted: Bool
+    var buttonTitle: String = "Open System Settings"
     let openSettingsAction: () -> Void
 
     var body: some View {
@@ -111,7 +124,7 @@ struct PermissionCard: View {
                         .foregroundStyle(.orange)
                         .font(.caption)
 
-                    Button("Open System Settings") {
+                    Button(buttonTitle) {
                         openSettingsAction()
                     }
                     .buttonStyle(.borderedProminent)
