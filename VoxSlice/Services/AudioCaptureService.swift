@@ -390,7 +390,6 @@ final class AudioCaptureService {
         durationTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
             guard let self = self, self.state == .recording else { return }
             self.elapsedDuration += 1.0
-            }
         }
     }
     // MARK: - Timer Cleanup
@@ -473,7 +472,7 @@ final class AudioCaptureService {
         return name as String
     }
     /// Calculate RMS (root mean square) of an audio buffer for level metering
-    static func calculateRMS(for buffer: AVAudioPCMBuffer) -> Float {
+    nonisolated static func calculateRMS(for buffer: AVAudioPCMBuffer) -> Float {
         guard let channelData = buffer.floatChannelData?[0] else { return 0 }
         let frameLength = Int(buffer.frameLength)
         guard frameLength > 0 else { return 0 }
@@ -483,14 +482,11 @@ final class AudioCaptureService {
             sum += sample * sample
         }
         return sqrt(sum / Float(frameLength))
- }
-
+    }
 }
 
-    // MARK: - AudioStreamOutput (SCStreamOutput and SCStreamDelegate)
 // MARK: - AudioStreamOutput (SCStreamOutput and SCStreamDelegate)
 private class AudioStreamOutput: NSObject, SCStreamOutput, SCStreamDelegate {
-    @MainActor
     private weak var service: AudioCaptureService?
     private let targetFormat: AVAudioFormat
 
@@ -506,9 +502,11 @@ private class AudioStreamOutput: NSObject, SCStreamOutput, SCStreamDelegate {
     // MARK: - SCStreamDelegate
     func stream(_ stream: SCStream, didStopWithError error: any Error) {
         print("[AudioStreamOutput] Stream stopped with error: \(error.localizedDescription)")
-        guard let service = service else { return }
-        if service.state == .recording {
-            _ = try? service.stopRecording()
+        Task { @MainActor in
+            guard let service = service else { return }
+            if service.state == .recording {
+                _ = try? service.stopRecording()
+            }
         }
     }
     // MARK: - SCStreamOutput
