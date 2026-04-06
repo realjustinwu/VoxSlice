@@ -1,8 +1,21 @@
 import SwiftUI
 
-// AppDelegate manages the permissions window lifecycle
+// AppDelegate manages the permissions window lifecycle and service dependencies
+@MainActor
 class AppDelegate: NSObject, NSApplicationDelegate {
     let permissionManager = PermissionManager()
+    let storageService = StorageService()
+    private(set) lazy var audioCaptureService = AudioCaptureService(
+        storageService: storageService,
+        permissionManager: permissionManager
+    )
+    private(set) lazy var recordingCoordinator: RecordingCoordinator = {
+        RecordingCoordinator(
+            audioCaptureService: audioCaptureService,
+            storageService: storageService,
+            permissionManager: permissionManager
+        )
+    }()
     var permissionsWindow: NSWindow?
 
     func applicationDidFinishLaunching(_ notification: Notification) {
@@ -33,16 +46,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 struct VoxSliceApp: App {
     // Per D-16: Register AppDelegate to manage permissions window
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    @State private var storageService = StorageService()
 
     var body: some Scene {
-        MenuBarExtra("VoxSlice", systemImage: "waveform.circle") {
-            MenuBarView()
+        // Per D-05: Icon changes to record.circle (red) when recording, waveform.circle when idle
+        MenuBarExtra("VoxSlice", systemImage: appDelegate.recordingCoordinator.state == .recording ? "record.circle" : "waveform.circle") {
+            MenuBarView(coordinator: appDelegate.recordingCoordinator)
         }
         .menuBarExtraStyle(.menu)
 
         Settings {
-            SettingsView(storageService: storageService)
+            SettingsView(storageService: appDelegate.storageService)
         }
     }
 }
