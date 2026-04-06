@@ -49,8 +49,8 @@ Plans:
 **Plans:** 3 plans
 
 Plans:
-- [ ] 02-01-PLAN.md — Dual-stream audio capture engine (ScreenCaptureKit + AVAudioEngine)
-- [ ] 02-02-PLAN.md — Recording coordinator with state machine, file management, and metadata
+- [x] 02-01-PLAN.md — Dual-stream audio capture engine (ScreenCaptureKit + AVAudioEngine)
+- [x] 02-02-PLAN.md — Recording coordinator with state machine, file management, and metadata
 - [ ] 02-03-PLAN.md — Menu bar recording UI and app integration wiring
 
 ### Phase 3: Transcription Pipeline
