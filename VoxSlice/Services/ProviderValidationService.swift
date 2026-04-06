@@ -61,7 +61,8 @@ final class ProviderValidationService {
 
     /// For OpenAI-compatible endpoints, call GET /models to validate the key
     private func validateKey(baseURL: String, apiKey: String) async throws -> Bool {
-        guard let url = URL(string: "\(baseURL)/models") else { return false }
+        guard let url = URL(string: "\(baseURL)/models"),
+              url.scheme == "https" else { return false }
 
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
