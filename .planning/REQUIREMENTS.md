@@ -11,7 +11,7 @@ Requirements for initial release. Each maps to roadmap phases.
 
 - [ ] **RECD-01**: User can start/stop recording via global keyboard shortcut from any context
 - [x] **RECD-02**: App records both microphone and system audio simultaneously
-- [ ] **RECD-03**: Visual indicator shows recording status (menu bar icon + floating indicator)
+- [x] **RECD-03**: Visual indicator shows recording status (menu bar icon + floating indicator)
 - [x] **RECD-04**: Recording continues when app window is hidden or minimized
 - [ ] **RECD-05**: App requests and handles macOS Screen Recording and Microphone permissions gracefully
 
@@ -87,7 +87,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 |-------------|-------|--------|
 | RECD-01 | Phase 6 | Pending |
 | RECD-02 | Phase 2 | Complete |
-| RECD-03 | Phase 2 | Pending |
+| RECD-03 | Phase 2 | Complete |
 | RECD-04 | Phase 2 | Complete |
 | RECD-05 | Phase 1 | Pending |
 | TRSC-01 | Phase 3 | Pending |
