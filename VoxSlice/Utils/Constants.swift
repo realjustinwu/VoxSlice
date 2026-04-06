@@ -28,4 +28,10 @@ enum AppConstants {
     static let audioFileExtension = "m4a"                    // per D-01
     static let metadataFileExtension = "json"                // per D-11
     static let recordingTimestampFormat = "yyyy-MM-dd_HH-mm-ss"  // per D-10
+
+    // Notification names for coordinator-level events
+    static let recordingDidStartNotification = Notification.Name("voxslice.recordingDidStart")
+    static let recordingDidStopNotification = Notification.Name("voxslice.recordingDidStop")
+    static let recordingDidFailNotification = Notification.Name("voxslice.recordingDidFail")
+    static let deviceDidChangeNotification = Notification.Name("voxslice.deviceDidChange")
 }
