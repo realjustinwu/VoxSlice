@@ -46,7 +46,12 @@ Plans:
   2. Menu bar icon changes state to clearly indicate recording is active (visual recording indicator)
   3. Recording continues uninterrupted when the app window is hidden, minimized, or the app is in the background
   4. Recording survives audio device changes (e.g., headphone disconnect/reconnect) without crashing or silently stopping
-**Plans**: TBD
+**Plans:** 3 plans
+
+Plans:
+- [ ] 02-01-PLAN.md — Dual-stream audio capture engine (ScreenCaptureKit + AVAudioEngine)
+- [ ] 02-02-PLAN.md — Recording coordinator with state machine, file management, and metadata
+- [ ] 02-03-PLAN.md — Menu bar recording UI and app integration wiring
 
 ### Phase 3: Transcription Pipeline
 **Goal**: Users get accurate transcriptions with timestamps and speaker identification for recorded meetings
@@ -101,7 +106,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. App Shell + Permissions + Settings | 3/3 | Complete   | 2026-04-06 |
-| 2. Audio Capture Engine | 0/? | Not started | - |
+| 2. Audio Capture Engine | 0/3 | Not started | - |
 | 3. Transcription Pipeline | 0/? | Not started | - |
 | 4. AI Analysis + Markdown Output | 0/? | Not started | - |
 | 5. Dashboard + Playback | 0/? | Not started | - |
