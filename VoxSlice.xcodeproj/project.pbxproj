@@ -22,6 +22,7 @@
 				A1000112000000000000001 /* GeneralSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000214000000000000001 /* GeneralSettingsView.swift */; };
 				A1000113000000000000001 /* ProviderSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000215000000000000001 /* ProviderSettingsView.swift */; };
 				A1000114000000000000001 /* RecordingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000216000000000000001 /* RecordingInfo.swift */; };
+				A1000115000000000000001 /* AudioCaptureService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000217000000000000001 /* AudioCaptureService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 				A1000214000000000000001 /* GeneralSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettingsView.swift; sourceTree = "<group>"; };
 				A1000215000000000000001 /* ProviderSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderSettingsView.swift; sourceTree = "<group>"; };
 				A1000216000000000000001 /* RecordingInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingInfo.swift; sourceTree = "<group>"; };
+				A1000217000000000000001 /* AudioCaptureService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioCaptureService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 					A1000208000000000000001 /* PermissionManager.swift */,
 					A1000211000000000000001 /* KeychainService.swift */,
 					A1000212000000000000001 /* ProviderValidationService.swift */,
+					A1000217000000000000001 /* AudioCaptureService.swift */,
 				);
 				path = Services;
 				sourceTree = "<group>";
@@ -215,6 +218,7 @@
 					A1000112000000000000001 /* GeneralSettingsView.swift in Sources */,
 					A1000113000000000000001 /* ProviderSettingsView.swift in Sources */,
 					A1000114000000000000001 /* RecordingInfo.swift in Sources */,
+					A1000115000000000000001 /* AudioCaptureService.swift in Sources */,
 				);
 				runOnlyForDeploymentPostprocessing = 0;
 			};
