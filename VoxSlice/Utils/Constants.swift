@@ -34,4 +34,21 @@ enum AppConstants {
     static let recordingDidStopNotification = Notification.Name("voxslice.recordingDidStop")
     static let recordingDidFailNotification = Notification.Name("voxslice.recordingDidFail")
     static let deviceDidChangeNotification = Notification.Name("voxslice.deviceDidChange")
+
+    // Transcription settings (per D-01/D-02)
+    static let whisperXURLKey = "whisperXServiceURL"
+    static let whisperXDefaultURL = "http://localhost:8000"
+    static let whisperXHealthEndpoint = "/health"
+    static let whisperXTranscribeEndpoint = "/transcribe"
+    static let transcriptFileSuffix = "_transcript"
+    static let transcriptFileExtension = "json"
+
+    // Audio chunking (per D-11)
+    static let maxUploadFileSize: UInt64 = 24 * 1024 * 1024  // 24MB (under 25MB Whisper limit)
+    static let defaultChunkDuration: TimeInterval = 600.0    // 10 minutes per chunk
+
+    // Notification names for transcription events
+    static let transcriptionDidStartNotification = Notification.Name("voxslice.transcriptionDidStart")
+    static let transcriptionDidCompleteNotification = Notification.Name("voxslice.transcriptionDidComplete")
+    static let transcriptionDidFailNotification = Notification.Name("voxslice.transcriptionDidFail")
 }
