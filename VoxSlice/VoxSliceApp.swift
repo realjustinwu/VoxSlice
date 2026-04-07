@@ -9,11 +9,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         storageService: storageService,
         permissionManager: permissionManager
     )
+    private(set) lazy var transcriptionService = TranscriptionService(
+        storageService: storageService
+    )
     private(set) lazy var recordingCoordinator: RecordingCoordinator = {
         RecordingCoordinator(
             audioCaptureService: audioCaptureService,
             storageService: storageService,
-            permissionManager: permissionManager
+            permissionManager: permissionManager,
+            transcriptionService: transcriptionService
         )
     }()
     var permissionsWindow: NSWindow?
@@ -47,15 +51,34 @@ struct VoxSliceApp: App {
     // Per D-16: Register AppDelegate to manage permissions window
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
+    /// Computed menu bar icon per UI-SPEC:
+    /// Priority: recording > transcription failed > transcribing > idle
+    private var menuBarIcon: String {
+        let recordingState = appDelegate.recordingCoordinator.state
+        let transcriptionStep = appDelegate.recordingCoordinator.transcriptionService.transcriptionStep
+
+        if recordingState == .recording {
+            return "record.circle"
+        } else if case .failed = transcriptionStep {
+            return "exclamationmark.triangle"
+        } else if transcriptionStep != .idle && transcriptionStep != .completed {
+            return "doc.text.below.ecg"
+        } else {
+            return "waveform.circle"
+        }
+    }
+
     var body: some Scene {
-        // Per D-05: Icon changes to record.circle (red) when recording, waveform.circle when idle
-        MenuBarExtra("VoxSlice", systemImage: appDelegate.recordingCoordinator.state == .recording ? "record.circle" : "waveform.circle") {
+        MenuBarExtra("VoxSlice", systemImage: menuBarIcon) {
             MenuBarView(coordinator: appDelegate.recordingCoordinator)
         }
         .menuBarExtraStyle(.menu)
 
         Settings {
-            SettingsView(storageService: appDelegate.storageService)
+            SettingsView(
+                storageService: appDelegate.storageService,
+                transcriptionService: appDelegate.transcriptionService
+            )
         }
     }
 }

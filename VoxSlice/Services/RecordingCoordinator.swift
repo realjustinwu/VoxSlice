@@ -35,6 +35,7 @@ final class RecordingCoordinator {
     private let audioCaptureService: AudioCaptureService
     private let storageService: StorageService
     private let permissionManager: PermissionManager
+    private(set) var transcriptionService: TranscriptionService
 
     // MARK: - Notification Observers
 
@@ -53,11 +54,13 @@ final class RecordingCoordinator {
     init(
         audioCaptureService: AudioCaptureService,
         storageService: StorageService,
-        permissionManager: PermissionManager
+        permissionManager: PermissionManager,
+        transcriptionService: TranscriptionService
     ) {
         self.audioCaptureService = audioCaptureService
         self.storageService = storageService
         self.permissionManager = permissionManager
+        self.transcriptionService = transcriptionService
 
         setupNotificationObservers()
     }
@@ -171,6 +174,9 @@ final class RecordingCoordinator {
                 object: nil,
                 userInfo: ["recording": completedRecording]
             )
+
+            // Auto-transcribe per D-10
+            startTranscription(recording: completedRecording)
         } catch {
             state = .failed(.captureStartFailed(error.localizedDescription))
             NotificationCenter.default.post(
@@ -225,6 +231,11 @@ final class RecordingCoordinator {
             object: nil,
             userInfo: currentRecording.map { ["recording": $0] } ?? nil
         )
+
+        // Auto-transcribe per D-10
+        if let recording = currentRecording {
+            startTranscription(recording: recording)
+        }
     }
 
     /// Called when AudioCaptureService detects silence and stops recording
@@ -251,6 +262,29 @@ final class RecordingCoordinator {
         if state == .recording {
             elapsedDuration = audioCaptureService.elapsedDuration
             currentRecording = audioCaptureService.currentRecording
+        }
+    }
+
+    // MARK: - Transcription
+
+    /// Trigger automatic transcription after recording stops per D-10.
+    /// Runs in a background Task so recording state remains .completed.
+    private func startTranscription(recording: RecordingInfo) {
+        Task { @MainActor in
+            do {
+                let transcript = try await transcriptionService.transcribe(recording: recording)
+                NotificationCenter.default.post(
+                    name: AppConstants.transcriptionDidCompleteNotification,
+                    object: nil,
+                    userInfo: ["transcript": transcript]
+                )
+            } catch {
+                NotificationCenter.default.post(
+                    name: AppConstants.transcriptionDidFailNotification,
+                    object: nil,
+                    userInfo: ["error": error]
+                )
+            }
         }
     }
 
