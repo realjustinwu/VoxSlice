@@ -15,17 +15,17 @@ One-click meeting recording → structured AI analysis in a Markdown file you ca
 <!-- Shipped and confirmed valuable. -->
 
 - [x] In-app settings to configure API keys (STT provider, AI provider) — Validated in Phase 1
+- [x] Record both microphone and system audio simultaneously — Validated in Phase 2
+- [x] Transcribe audio using OpenAI Whisper API (or compatible STT APIs) with auto language detection (Chinese/English/mixed) — Validated in Phase 3
+- [x] Save raw transcripts with timestamps — Validated in Phase 3
+- [x] AI analysis extracts: summary, action items, decisions, key topics — Validated in Phase 4
+- [x] Export analysis results as Markdown files to a configurable output folder — Validated in Phase 4
 
 ### Active
 
 <!-- Current scope. Building toward these. -->
 
 - [ ] Global keyboard shortcut to start/stop recording from anywhere on Mac
-- [ ] Record both microphone and system audio simultaneously
-- [ ] Transcribe audio using OpenAI Whisper API (or compatible STT APIs) with auto language detection (Chinese/English/mixed)
-- [ ] Save raw transcripts with timestamps
-- [ ] AI analysis extracts: summary, action items, decisions, key topics
-- [ ] Export analysis results as Markdown files to a configurable output folder
 - [ ] Full window app with dashboard showing recording history and status
 - [ ] Installable Mac application (DMG or similar distributable)
 
@@ -84,4 +84,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-04-06 after Phase 1 completion*
+*Last updated: 2026-04-07 after Phase 4 completion*
