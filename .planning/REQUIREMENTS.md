@@ -25,16 +25,16 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### AI Analysis
 
-- [ ] **ANLY-01**: AI generates concise meeting summary
-- [ ] **ANLY-02**: AI extracts action items from discussion
-- [ ] **ANLY-03**: AI identifies key decisions made during meeting
-- [ ] **ANLY-04**: AI extracts main discussion topics with descriptions
-- [ ] **ANLY-05**: All analysis results are structured and clearly formatted
+- [x] **ANLY-01**: AI generates concise meeting summary
+- [x] **ANLY-02**: AI extracts action items from discussion
+- [x] **ANLY-03**: AI identifies key decisions made during meeting
+- [x] **ANLY-04**: AI extracts main discussion topics with descriptions
+- [x] **ANLY-05**: All analysis results are structured and clearly formatted
 
 ### Output
 
-- [ ] **OUTP-01**: Analysis results are saved as Markdown files with YAML frontmatter (date, duration, topics)
-- [ ] **OUTP-02**: User can configure the output folder for saved files
+- [x] **OUTP-01**: Analysis results are saved as Markdown files with YAML frontmatter (date, duration, topics)
+- [x] **OUTP-02**: User can configure the output folder for saved files
 - [ ] **OUTP-03**: User can copy analysis sections to clipboard
 
 ### User Interface
@@ -95,13 +95,13 @@ Which phases cover which requirements. Updated during roadmap creation.
 | TRSC-03 | Phase 3 | Complete |
 | TRSC-04 | Phase 3 | Complete |
 | TRSC-05 | Phase 3 | Complete |
-| ANLY-01 | Phase 4 | Pending |
-| ANLY-02 | Phase 4 | Pending |
-| ANLY-03 | Phase 4 | Pending |
-| ANLY-04 | Phase 4 | Pending |
-| ANLY-05 | Phase 4 | Pending |
-| OUTP-01 | Phase 4 | Pending |
-| OUTP-02 | Phase 4 | Pending |
+| ANLY-01 | Phase 4 | Complete |
+| ANLY-02 | Phase 4 | Complete |
+| ANLY-03 | Phase 4 | Complete |
+| ANLY-04 | Phase 4 | Complete |
+| ANLY-05 | Phase 4 | Complete |
+| OUTP-01 | Phase 4 | Complete |
+| OUTP-02 | Phase 4 | Complete |
 | OUTP-03 | Phase 4 | Pending |
 | UIUX-01 | Phase 5 | Pending |
 | UIUX-02 | Phase 1 | Complete |
