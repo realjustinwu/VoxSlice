@@ -2,6 +2,7 @@ import SwiftUI
 
 struct SettingsView: View {
     @Bindable var storageService: StorageService
+    @Bindable var transcriptionService: TranscriptionService
 
     var body: some View {
         TabView {
@@ -16,6 +17,10 @@ struct SettingsView: View {
             AIProviderSettingsView(storageService: storageService)
                 .tabItem {
                     Label("AI Provider", systemImage: "brain")
+                }
+            TranscriptionSettingsView(transcriptionService: transcriptionService)
+                .tabItem {
+                    Label("Transcription", systemImage: "doc.text.below.ecg")
                 }
         }
         .frame(width: 520, height: 420)
