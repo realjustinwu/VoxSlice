@@ -48,6 +48,9 @@ struct TranscriptSegmentView: View {
         .buttonStyle(.plain)
         .accessibilityElement(children: .combine)
         .accessibilityLabel("\(speakerLabel), [\(formatTime(segment.startTime)) - \(formatTime(segment.endTime))], \(segment.text)")
+        .accessibilityAddTraits(isHighlighted ? .isSelected : .init())
+        .accessibilityRemoveTraits(isHighlighted ? .init() : .isSelected)
+        .animation(.easeInOut(duration: 0.2), value: isHighlighted)
     }
 
     // MARK: - Helpers

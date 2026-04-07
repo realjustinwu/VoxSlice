@@ -1,49 +1,50 @@
 import SwiftUI
 
 /// Scrollable detail view for a selected recording per D-08 and UI-SPEC.
-/// Displays transcript segments and analysis sections in a stacked layout.
+/// Displays audio player, transcript segments, and analysis sections in a stacked layout.
+/// Wires player to transcript sync: click segment to seek, highlight current segment during playback.
 struct DetailView: View {
     let item: RecordingHistoryItem
     let coordinator: RecordingCoordinator
     @Environment(AppDelegate.self) var appDelegate
+    @State private var playerViewModel = AudioPlayerViewModel()
 
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 24) {
-                // 1. Player placeholder (Plan 03 adds actual player)
-                playerPlaceholder
+        ScrollViewReader { proxy in
+            ScrollView {
+                VStack(alignment: .leading, spacing: 24) {
+                    // 1. Audio player (replaces the placeholder from Plan 02)
+                    AudioPlayerView(viewModel: playerViewModel)
 
-                // 2. Transcript section
-                transcriptSection
+                    // 2. Transcript section (wired to player for sync)
+                    transcriptSection
 
-                // 3. Analysis sections
-                analysisSections
+                    // 3. Analysis sections
+                    analysisSections
+                }
+                .padding(.horizontal, 16)
+                .padding(.vertical, 24)
             }
-            .padding(.horizontal, 16)
-            .padding(.vertical, 24)
+            .onChange(of: playerViewModel.currentSegmentId) { _, newSegmentId in
+                // Auto-scroll to highlighted segment per D-15
+                if let segmentId = newSegmentId {
+                    withAnimation(.easeInOut(duration: 0.3)) {
+                        proxy.scrollTo(segmentId, anchor: .center)
+                    }
+                }
+            }
         }
-    }
-
-    // MARK: - Player Placeholder
-
-    /// Placeholder for audio player controls (wired in Plan 03).
-    @ViewBuilder
-    private var playerPlaceholder: some View {
-        HStack {
-            Image(systemName: "play.fill")
-                .font(.system(size: 16))
-                .foregroundStyle(.secondary)
-            Text("--:--")
-                .font(.system(size: 13, design: .monospaced))
-                .foregroundStyle(.secondary)
-            Spacer()
+        .onAppear {
+            playerViewModel.loadAudio(for: item, historyService: appDelegate.recordingHistoryService)
         }
-        .padding(16)
-        .background(
-            RoundedRectangle(cornerRadius: 8)
-                .fill(Color(NSColor.controlBackgroundColor))
-        )
-        .opacity(0.5)
+        .onDisappear {
+            playerViewModel.cleanup()
+        }
+        .onChange(of: item.id) { _, _ in
+            // Reload player when selection changes
+            playerViewModel.cleanup()
+            playerViewModel.loadAudio(for: item, historyService: appDelegate.recordingHistoryService)
+        }
     }
 
     // MARK: - Transcript Section
@@ -62,11 +63,12 @@ struct DetailView: View {
                     TranscriptSegmentView(
                         segment: segment,
                         speakerLabel: speakerMap[segment.speaker] ?? segment.speaker,
-                        isHighlighted: false,
+                        isHighlighted: playerViewModel.currentSegmentId == segment.id,
                         onTap: {
-                            // Placeholder: will seek audio in Plan 03
+                            playerViewModel.seekToSegment(segment)
                         }
                     )
+                    .id(segment.id)
                 }
             } else {
                 switch item.status {
