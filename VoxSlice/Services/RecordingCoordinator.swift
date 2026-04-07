@@ -36,6 +36,7 @@ final class RecordingCoordinator {
     private let storageService: StorageService
     private let permissionManager: PermissionManager
     private(set) var transcriptionService: TranscriptionService
+    private(set) var analysisService: AnalysisService
 
     // MARK: - Notification Observers
 
@@ -55,12 +56,14 @@ final class RecordingCoordinator {
         audioCaptureService: AudioCaptureService,
         storageService: StorageService,
         permissionManager: PermissionManager,
-        transcriptionService: TranscriptionService
+        transcriptionService: TranscriptionService,
+        analysisService: AnalysisService
     ) {
         self.audioCaptureService = audioCaptureService
         self.storageService = storageService
         self.permissionManager = permissionManager
         self.transcriptionService = transcriptionService
+        self.analysisService = analysisService
 
         setupNotificationObservers()
     }
@@ -98,6 +101,16 @@ final class RecordingCoordinator {
             .autoconnect()
             .sink { [weak self] _ in
                 self?.syncStateWithCaptureService()
+            }
+            .store(in: &cancellables)
+
+        // Observe transcription completion to auto-trigger analysis per D-09
+        NotificationCenter.default.publisher(for: AppConstants.transcriptionDidCompleteNotification)
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] notification in
+                if let transcript = notification.userInfo?["transcript"] as? TranscriptInfo {
+                    self?.startAnalysis(transcript: transcript)
+                }
             }
             .store(in: &cancellables)
     }
@@ -284,6 +297,21 @@ final class RecordingCoordinator {
                     object: nil,
                     userInfo: ["error": error]
                 )
+            }
+        }
+    }
+
+    // MARK: - Analysis
+
+    /// Trigger automatic analysis after transcription completes per D-09.
+    /// Runs in a background Task so transcription state remains .completed.
+    private func startAnalysis(transcript: TranscriptInfo) {
+        Task { @MainActor in
+            do {
+                let _ = try await analysisService.analyze(transcript: transcript)
+                // Notification already posted by AnalysisService on success
+            } catch {
+                // Notification already posted by AnalysisService on failure
             }
         }
     }

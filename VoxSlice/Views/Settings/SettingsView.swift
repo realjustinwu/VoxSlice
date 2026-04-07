@@ -3,10 +3,11 @@ import SwiftUI
 struct SettingsView: View {
     @Bindable var storageService: StorageService
     @Bindable var transcriptionService: TranscriptionService
+    @Bindable var analysisService: AnalysisService
 
     var body: some View {
         TabView {
-            GeneralSettingsView(storageService: storageService)
+            GeneralSettingsView(storageService: storageService, analysisService: analysisService)
                 .tabItem {
                     Label("General", systemImage: "gearshape")
                 }

@@ -156,6 +156,7 @@ struct MenuBarView: View {
         ),
         storageService: StorageService(),
         permissionManager: PermissionManager(),
-        transcriptionService: TranscriptionService(storageService: StorageService())
+        transcriptionService: TranscriptionService(storageService: StorageService()),
+        analysisService: AnalysisService(storageService: StorageService())
     ))
 }

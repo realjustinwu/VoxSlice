@@ -12,12 +12,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     private(set) lazy var transcriptionService = TranscriptionService(
         storageService: storageService
     )
+    private(set) lazy var analysisService = AnalysisService(storageService: storageService)
     private(set) lazy var recordingCoordinator: RecordingCoordinator = {
         RecordingCoordinator(
             audioCaptureService: audioCaptureService,
             storageService: storageService,
             permissionManager: permissionManager,
-            transcriptionService: transcriptionService
+            transcriptionService: transcriptionService,
+            analysisService: analysisService
         )
     }()
     var permissionsWindow: NSWindow?
@@ -52,10 +54,11 @@ struct VoxSliceApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
     /// Computed menu bar icon per UI-SPEC:
-    /// Priority: recording > transcription failed > transcribing > idle
+    /// Priority: recording > transcription failed > transcribing > analysis failed > analyzing > analysis complete > idle
     private var menuBarIcon: String {
         let recordingState = appDelegate.recordingCoordinator.state
         let transcriptionStep = appDelegate.recordingCoordinator.transcriptionService.transcriptionStep
+        let analysisStep = appDelegate.recordingCoordinator.analysisService.analysisStep
 
         if recordingState == .recording {
             return "record.circle"
@@ -63,6 +66,12 @@ struct VoxSliceApp: App {
             return "exclamationmark.triangle"
         } else if transcriptionStep != .idle && transcriptionStep != .completed {
             return "doc.text.below.ecg"
+        } else if case .failed = analysisStep {
+            return "exclamationmark.triangle"
+        } else if analysisStep == .preparing || analysisStep == .sending || analysisStep == .processing || analysisStep == .saving {
+            return "sparkles"
+        } else if analysisStep == .completed {
+            return "checkmark.circle"
         } else {
             return "waveform.circle"
         }
@@ -77,7 +86,8 @@ struct VoxSliceApp: App {
         Settings {
             SettingsView(
                 storageService: appDelegate.storageService,
-                transcriptionService: appDelegate.transcriptionService
+                transcriptionService: appDelegate.transcriptionService,
+                analysisService: appDelegate.analysisService
             )
         }
     }
