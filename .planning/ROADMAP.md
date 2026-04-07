@@ -67,7 +67,7 @@ Plans:
 
 Plans:
 - [x] 03-01-PLAN.md — Transcript data model, TranscriptionService with whisperX HTTP client, and AudioChunker
-- [ ] 03-02-PLAN.md — Wire transcription into RecordingCoordinator, MenuBarView, and Settings UI
+- [x] 03-02-PLAN.md — Wire transcription into RecordingCoordinator, MenuBarView, and Settings UI
 
 ### Phase 4: AI Analysis + Markdown Output
 **Goal**: Users receive structured AI analysis of their meetings exported as shareable Markdown files

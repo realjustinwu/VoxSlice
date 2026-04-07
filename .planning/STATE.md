@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: executing
-stopped_at: Completed 03-01-PLAN.md
-last_updated: "2026-04-07T00:52:10.112Z"
+status: verifying
+stopped_at: Completed 03-02-PLAN.md
+last_updated: "2026-04-07T00:58:08.416Z"
 last_activity: 2026-04-07
 progress:
   total_phases: 6
-  completed_phases: 2
+  completed_phases: 3
   total_plans: 8
-  completed_plans: 7
-  percent: 88
+  completed_plans: 8
+  percent: 100
 ---
 
 # Project State
@@ -27,7 +27,7 @@ See: .planning/PROJECT.md (updated 2026-04-06)
 
 Phase: 03 (transcription-pipeline) — EXECUTING
 Plan: 2 of 2
-Status: Ready to execute
+Status: Phase complete — ready for verification
 Last activity: 2026-04-07
 
 Progress: [==........] 20%
@@ -60,6 +60,7 @@ Progress: [==........] 20%
 | Phase 02 P02 | 6min | 1 tasks | 3 files |
 | Phase 02 P03 | 224s | 1 tasks | 2 files |
 | Phase 03 P01 | 5min | 2 tasks | 4 files |
+| Phase 03 P02 | 3min | 2 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -84,6 +85,9 @@ Recent decisions affecting current work:
 - [Phase 02]: AppDelegate marked @MainActor for synchronous @Observable service initialization
 - [Phase 02]: Used record.circle SF Symbol for recording state icon vs waveform.circle for idle per D-05
 - [Phase 03]: Used AVMutableComposition to merge mic and system audio tracks into single M4A before transcription
+- [Phase 03]: Used computed property for menu bar icon to reactively switch between 4 states (recording, transcribing, failed, idle)
+- [Phase 03]: RecordingCoordinator auto-transcribes in detached Task so recording state remains .completed
+- [Phase 03]: Retry button uses transcribe(recording:) with currentRecording rather than retryLastTranscription()
 
 ### Pending Todos
 
@@ -95,6 +99,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-04-07T00:52:10.109Z
-Stopped at: Completed 03-01-PLAN.md
+Last session: 2026-04-07T00:58:08.413Z
+Stopped at: Completed 03-02-PLAN.md
 Resume file: None
