@@ -51,4 +51,16 @@ enum AppConstants {
     static let transcriptionDidStartNotification = Notification.Name("voxslice.transcriptionDidStart")
     static let transcriptionDidCompleteNotification = Notification.Name("voxslice.transcriptionDidComplete")
     static let transcriptionDidFailNotification = Notification.Name("voxslice.transcriptionDidFail")
+
+    // Analysis settings (per D-03)
+    static let analysisLanguageKey = "analysisLanguage"
+
+    // Analysis notification names
+    static let analysisDidStartNotification = Notification.Name("voxslice.analysisDidStart")
+    static let analysisDidCompleteNotification = Notification.Name("voxslice.analysisDidComplete")
+    static let analysisDidFailNotification = Notification.Name("voxslice.analysisDidFail")
+
+    // Analysis file naming
+    static let analysisFileSuffix = "_analysis"
+    static let analysisFileExtension = "md"
 }
