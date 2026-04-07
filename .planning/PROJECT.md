@@ -26,7 +26,7 @@ One-click meeting recording → structured AI analysis in a Markdown file you ca
 <!-- Current scope. Building toward these. -->
 
 - [ ] Global keyboard shortcut to start/stop recording from anywhere on Mac
-- [ ] Full window app with dashboard showing recording history and status
+- [x] Full window app with dashboard showing recording history and status — Validated in Phase 5
 - [ ] Installable Mac application (DMG or similar distributable)
 
 ### Out of Scope
@@ -84,4 +84,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-04-07 after Phase 4 completion*
+*Last updated: 2026-04-07 after Phase 5 completion*
