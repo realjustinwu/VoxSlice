@@ -93,8 +93,12 @@ Plans:
   1. User sees a full window dashboard with a list of all past recordings showing date, duration, and processing status
   2. User can click on any recording to view its transcript and analysis results
   3. User can play back audio and click on transcript text to jump to that moment in the recording
-**Plans**: TBD
-**UI hint**: yes
+**Plans:** 3 plans
+
+Plans:
+- [ ] 05-01-PLAN.md — Data layer: RecordingHistoryService, RecordingHistoryItem model, persist merged audio, shared CopyButton
+- [ ] 05-02-PLAN.md — Dashboard UI: NavigationSplitView window, sidebar with search, detail view with transcript + analysis sections
+- [ ] 05-03-PLAN.md — Audio playback: AVPlayer controls, transcript sync (click-to-seek, highlight, auto-scroll)
 
 ### Phase 6: Global Hotkey + Distribution
 **Goal**: Users can start and stop recording from anywhere on Mac with a keyboard shortcut, and the app is distributable as a standard Mac application
@@ -117,5 +121,5 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 | 2. Audio Capture Engine | 3/3 | Complete   | 2026-04-06 |
 | 3. Transcription Pipeline | 0/2 | Not started | - |
 | 4. AI Analysis + Markdown Output | 0/2 | Not started | - |
-| 5. Dashboard + Playback | 0/? | Not started | - |
+| 5. Dashboard + Playback | 0/3 | Not started | - |
 | 6. Global Hotkey + Distribution | 0/? | Not started | - |
