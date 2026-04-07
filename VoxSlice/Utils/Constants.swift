@@ -63,4 +63,13 @@ enum AppConstants {
     // Analysis file naming
     static let analysisFileSuffix = "_analysis"
     static let analysisFileExtension = "md"
+
+    // Dashboard settings
+    static let dashboardWindowFrame = "dashboardWindowFrame"
+
+    // Merged audio file naming
+    static let mergedFileSuffix = "_merged"
+
+    // Dashboard notification names
+    static let dashboardDataDidChangeNotification = Notification.Name("voxslice.dashboardDataDidChange")
 }
