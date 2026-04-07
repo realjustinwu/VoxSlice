@@ -24,6 +24,12 @@
 				A1000114000000000000001 /* RecordingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000216000000000000001 /* RecordingInfo.swift */; };
 				A1000115000000000000001 /* AudioCaptureService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000217000000000000001 /* AudioCaptureService.swift */; };
 				A1000116000000000000001 /* RecordingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000218000000000000001 /* RecordingCoordinator.swift */; };
+				A1000117000000000000001 /* Analysis.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000219000000000000001 /* Analysis.swift */; };
+				A1000118000000000000001 /* Transcript.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000220000000000000001 /* Transcript.swift */; };
+				A1000119000000000000001 /* AnalysisService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000221000000000000001 /* AnalysisService.swift */; };
+				A1000120000000000000001 /* AudioChunker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000222000000000000001 /* AudioChunker.swift */; };
+				A1000121000000000000001 /* TranscriptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000223000000000000001 /* TranscriptionService.swift */; };
+				A1000122000000000000001 /* TranscriptionSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000224000000000000001 /* TranscriptionSettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +52,12 @@
 				A1000216000000000000001 /* RecordingInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingInfo.swift; sourceTree = "<group>"; };
 				A1000217000000000000001 /* AudioCaptureService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioCaptureService.swift; sourceTree = "<group>"; };
 				A1000218000000000000001 /* RecordingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingCoordinator.swift; sourceTree = "<group>"; };
+				A1000219000000000000001 /* Analysis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analysis.swift; sourceTree = "<group>"; };
+				A1000220000000000000001 /* Transcript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transcript.swift; sourceTree = "<group>"; };
+				A1000221000000000000001 /* AnalysisService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisService.swift; sourceTree = "<group>"; };
+				A1000222000000000000001 /* AudioChunker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioChunker.swift; sourceTree = "<group>"; };
+				A1000223000000000000001 /* TranscriptionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionService.swift; sourceTree = "<group>"; };
+				A1000224000000000000001 /* TranscriptionSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptionSettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +128,9 @@
 					A1000212000000000000001 /* ProviderValidationService.swift */,
 					A1000217000000000000001 /* AudioCaptureService.swift */,
 					A1000218000000000000001 /* RecordingCoordinator.swift */,
+					A1000221000000000000001 /* AnalysisService.swift */,
+					A1000222000000000000001 /* AudioChunker.swift */,
+					A1000223000000000000001 /* TranscriptionService.swift */,
 				);
 				path = Services;
 				sourceTree = "<group>";
@@ -125,6 +140,8 @@
 					children = (
 						A1000210000000000000001 /* Provider.swift */,
 						A1000216000000000000001 /* RecordingInfo.swift */,
+						A1000219000000000000001 /* Analysis.swift */,
+						A1000220000000000000001 /* Transcript.swift */,
 					);
 					path = Models;
 					sourceTree = "<group>";
@@ -135,6 +152,7 @@
 						A1000213000000000000001 /* SettingsView.swift */,
 						A1000214000000000000001 /* GeneralSettingsView.swift */,
 						A1000215000000000000001 /* ProviderSettingsView.swift */,
+						A1000224000000000000001 /* TranscriptionSettingsView.swift */,
 					);
 					path = Settings;
 					sourceTree = "<group>";
@@ -223,6 +241,12 @@
 					A1000114000000000000001 /* RecordingInfo.swift in Sources */,
 					A1000115000000000000001 /* AudioCaptureService.swift in Sources */,
 					A1000116000000000000001 /* RecordingCoordinator.swift in Sources */,
+					A1000117000000000000001 /* Analysis.swift in Sources */,
+					A1000118000000000000001 /* Transcript.swift in Sources */,
+					A1000119000000000000001 /* AnalysisService.swift in Sources */,
+					A1000120000000000000001 /* AudioChunker.swift in Sources */,
+					A1000121000000000000001 /* TranscriptionService.swift in Sources */,
+					A1000122000000000000001 /* TranscriptionSettingsView.swift in Sources */,
 				);
 				runOnlyForDeploymentPostprocessing = 0;
 			};
