@@ -66,7 +66,7 @@ Plans:
 **Plans:** 2 plans
 
 Plans:
-- [ ] 03-01-PLAN.md — Transcript data model, TranscriptionService with whisperX HTTP client, and AudioChunker
+- [x] 03-01-PLAN.md — Transcript data model, TranscriptionService with whisperX HTTP client, and AudioChunker
 - [ ] 03-02-PLAN.md — Wire transcription into RecordingCoordinator, MenuBarView, and Settings UI
 
 ### Phase 4: AI Analysis + Markdown Output

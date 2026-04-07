@@ -17,11 +17,11 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Transcription
 
-- [ ] **TRSC-01**: App supports multiple STT providers (OpenAI Whisper API, local models like WhisperKit, and other third-party STT APIs)
-- [ ] **TRSC-02**: Transcription auto-detects language (Chinese/English/mixed)
-- [ ] **TRSC-03**: Transcript includes timestamps for navigation
-- [ ] **TRSC-04**: Long recordings are automatically chunked to handle API upload limits
-- [ ] **TRSC-05**: Transcript identifies speakers (Speaker 1, Speaker 2, Speaker 3, etc.) via speaker diarization
+- [x] **TRSC-01**: App supports multiple STT providers (OpenAI Whisper API, local models like WhisperKit, and other third-party STT APIs)
+- [x] **TRSC-02**: Transcription auto-detects language (Chinese/English/mixed)
+- [x] **TRSC-03**: Transcript includes timestamps for navigation
+- [x] **TRSC-04**: Long recordings are automatically chunked to handle API upload limits
+- [x] **TRSC-05**: Transcript identifies speakers (Speaker 1, Speaker 2, Speaker 3, etc.) via speaker diarization
 
 ### AI Analysis
 
@@ -90,11 +90,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 | RECD-03 | Phase 2 | Complete |
 | RECD-04 | Phase 2 | Complete |
 | RECD-05 | Phase 1 | Pending |
-| TRSC-01 | Phase 3 | Pending |
-| TRSC-02 | Phase 3 | Pending |
-| TRSC-03 | Phase 3 | Pending |
-| TRSC-04 | Phase 3 | Pending |
-| TRSC-05 | Phase 3 | Pending |
+| TRSC-01 | Phase 3 | Complete |
+| TRSC-02 | Phase 3 | Complete |
+| TRSC-03 | Phase 3 | Complete |
+| TRSC-04 | Phase 3 | Complete |
+| TRSC-05 | Phase 3 | Complete |
 | ANLY-01 | Phase 4 | Pending |
 | ANLY-02 | Phase 4 | Pending |
 | ANLY-03 | Phase 4 | Pending |
