@@ -35,7 +35,7 @@ Requirements for initial release. Each maps to roadmap phases.
 
 - [x] **OUTP-01**: Analysis results are saved as Markdown files with YAML frontmatter (date, duration, topics)
 - [x] **OUTP-02**: User can configure the output folder for saved files
-- [ ] **OUTP-03**: User can copy analysis sections to clipboard
+- [x] **OUTP-03**: User can copy analysis sections to clipboard
 
 ### User Interface
 
@@ -102,7 +102,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | ANLY-05 | Phase 4 | Complete |
 | OUTP-01 | Phase 4 | Complete |
 | OUTP-02 | Phase 4 | Complete |
-| OUTP-03 | Phase 4 | Pending |
+| OUTP-03 | Phase 4 | Complete |
 | UIUX-01 | Phase 5 | Pending |
 | UIUX-02 | Phase 1 | Complete |
 | UIUX-03 | Phase 1 | Complete |

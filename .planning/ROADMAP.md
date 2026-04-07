@@ -83,7 +83,7 @@ Plans:
 
 Plans:
 - [x] 04-01-PLAN.md — Analysis data models, AnalysisService with AI provider API call, and Markdown file writer
-- [ ] 04-02-PLAN.md — Wire analysis into lifecycle (auto-analysis), menu bar UI (6-state icon, progress, results, copy, retry), and settings language picker
+- [x] 04-02-PLAN.md — Wire analysis into lifecycle (auto-analysis), menu bar UI (6-state icon, progress, results, copy, retry), and settings language picker
 
 ### Phase 5: Dashboard + Playback
 **Goal**: Users can browse their recording history and review meetings with synced audio playback
