@@ -96,9 +96,9 @@ Plans:
 **Plans:** 3 plans
 
 Plans:
-- [ ] 05-01-PLAN.md — Data layer: RecordingHistoryService, RecordingHistoryItem model, persist merged audio, shared CopyButton
-- [ ] 05-02-PLAN.md — Dashboard UI: NavigationSplitView window, sidebar with search, detail view with transcript + analysis sections
-- [ ] 05-03-PLAN.md — Audio playback: AVPlayer controls, transcript sync (click-to-seek, highlight, auto-scroll)
+- [x] 05-01-PLAN.md — Data layer: RecordingHistoryService, RecordingHistoryItem model, persist merged audio, shared CopyButton
+- [x] 05-02-PLAN.md — Dashboard UI: NavigationSplitView window, sidebar with search, detail view with transcript + analysis sections
+- [x] 05-03-PLAN.md — Audio playback: AVPlayer controls, transcript sync (click-to-seek, highlight, auto-scroll)
 
 ### Phase 6: Global Hotkey + Distribution
 **Goal**: Users can start and stop recording from anywhere on Mac with a keyboard shortcut, and the app is distributable as a standard Mac application
