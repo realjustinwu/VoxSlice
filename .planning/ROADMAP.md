@@ -54,16 +54,20 @@ Plans:
 - [x] 02-03-PLAN.md — Menu bar recording UI and app integration wiring
 
 ### Phase 3: Transcription Pipeline
-**Goal**: Users get accurate transcriptions with timestamps and speaker identification for recorded meetings
+**Goal**: Users get accurate transcriptions with timestamps and speaker identification for recorded meetings via a user-managed whisperX HTTP service
 **Depends on**: Phase 2
 **Requirements**: TRSC-01, TRSC-02, TRSC-03, TRSC-04, TRSC-05
 **Success Criteria** (what must be TRUE):
-  1. User can transcribe a recording using their configured STT provider (OpenAI Whisper, WhisperKit local, or other third-party STT APIs)
+  1. User can transcribe a recording using their configured STT provider (whisperX local HTTP service as primary, cloud providers as backup)
   2. Transcription auto-detects and correctly handles Chinese, English, and mixed-language audio
   3. Transcript output includes timestamps for navigation through the recording
   4. Long recordings (60+ minutes) are automatically chunked and transcribed without hitting API upload limits
   5. Transcript identifies speakers (Speaker 1, Speaker 2, etc.) via speaker diarization
-**Plans**: TBD
+**Plans:** 2 plans
+
+Plans:
+- [ ] 03-01-PLAN.md — Transcript data model, TranscriptionService with whisperX HTTP client, and AudioChunker
+- [ ] 03-02-PLAN.md — Wire transcription into RecordingCoordinator, MenuBarView, and Settings UI
 
 ### Phase 4: AI Analysis + Markdown Output
 **Goal**: Users receive structured AI analysis of their meetings exported as shareable Markdown files
@@ -106,8 +110,8 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. App Shell + Permissions + Settings | 3/3 | Complete   | 2026-04-06 |
-| 2. Audio Capture Engine | 0/3 | Not started | - |
-| 3. Transcription Pipeline | 0/? | Not started | - |
+| 2. Audio Capture Engine | 3/3 | Complete   | 2026-04-06 |
+| 3. Transcription Pipeline | 0/2 | Not started | - |
 | 4. AI Analysis + Markdown Output | 0/? | Not started | - |
 | 5. Dashboard + Playback | 0/? | Not started | - |
 | 6. Global Hotkey + Distribution | 0/? | Not started | - |
