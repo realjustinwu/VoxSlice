@@ -22,7 +22,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             analysisService: analysisService
         )
     }()
+    private(set) lazy var recordingHistoryService = RecordingHistoryService(
+        storageService: storageService
+    )
     var permissionsWindow: NSWindow?
+    var dashboardWindow: NSWindow?
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         // Per D-16: Show permissions window on first launch if any permission missing
@@ -45,6 +49,68 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         window.center()
         window.makeKeyAndOrderFront(nil)
         permissionsWindow = window
+    }
+
+    // MARK: - Dashboard Window
+
+    /// Opens the dashboard window, or brings it to front if already open.
+    /// Managed as raw NSWindow via AppDelegate (same pattern as permissionsWindow)
+    /// since LSUIElement=true complicates SwiftUI WindowGroup behavior.
+    func showDashboardWindow() {
+        if let window = dashboardWindow, window.isVisible {
+            window.makeKeyAndOrderFront(nil)
+            return
+        }
+
+        // Restore saved frame or use default per UI-SPEC
+        let defaultFrame = NSRect(x: 0, y: 0, width: 1000, height: 650)
+        let frameString = UserDefaults.standard.string(forKey: AppConstants.dashboardWindowFrame)
+        let contentRect = frameString.flatMap { NSRectFromString($0) } ?? defaultFrame
+
+        let window = NSWindow(
+            contentRect: contentRect,
+            styleMask: [.titled, .closable, .miniaturizable, .resizable],
+            backing: .buffered,
+            defer: false
+        )
+        window.title = "VoxSlice"
+        window.minSize = NSSize(width: 800, height: 500)
+        window.contentView = NSHostingView(rootView: DashboardView().environment(self))
+        window.delegate = self
+
+        // Only center on first launch (when no saved frame)
+        if frameString == nil {
+            window.center()
+        }
+
+        window.makeKeyAndOrderFront(nil)
+        dashboardWindow = window
+    }
+}
+
+// MARK: - NSWindowDelegate
+
+extension AppDelegate: NSWindowDelegate {
+    nonisolated func windowDidMove(_ notification: Notification) {
+        guard let window = notification.object as? NSWindow else { return }
+        Task { @MainActor in
+            let frameString = NSStringFromRect(window.frame)
+            UserDefaults.standard.set(frameString, forKey: AppConstants.dashboardWindowFrame)
+        }
+    }
+
+    nonisolated func windowDidResize(_ notification: Notification) {
+        guard let window = notification.object as? NSWindow else { return }
+        Task { @MainActor in
+            let frameString = NSStringFromRect(window.frame)
+            UserDefaults.standard.set(frameString, forKey: AppConstants.dashboardWindowFrame)
+        }
+    }
+
+    func windowShouldClose(_ sender: NSWindow) -> Bool {
+        // Hide the window instead of destroying it per D-03
+        sender.orderOut(nil)
+        return false
     }
 }
 

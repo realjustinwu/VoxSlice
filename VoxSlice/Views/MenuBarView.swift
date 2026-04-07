@@ -2,6 +2,7 @@ import SwiftUI
 
 struct MenuBarView: View {
     @Bindable var coordinator: RecordingCoordinator
+    @Environment(AppDelegate.self) var appDelegate
 
     /// Whether transcription is currently in progress
     private var isTranscribing: Bool {
@@ -51,6 +52,12 @@ struct MenuBarView: View {
         analysisStatusSection
 
         Divider()
+
+        // Open Dashboard per UI-SPEC
+        Button("Open Dashboard") {
+            appDelegate.showDashboardWindow()
+        }
+        .keyboardShortcut("d", modifiers: .command)
 
         // Settings — uses SettingsLink which responds to cmd+,
         SettingsLink {
