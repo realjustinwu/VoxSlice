@@ -143,25 +143,21 @@ final class TranscriptionService {
         )
         progress = 0.10
 
-        defer {
-            // Clean up merged file if it was created as a temp file
-            if mergedAudioURL.path != recording.systemFilePath {
-                try? FileManager.default.removeItem(at: mergedAudioURL)
-            }
-        }
+        // Persist merged audio file for playback (was previously temp + deleted)
+        let persistedMergedURL = persistMergedAudio(mergedAudioURL, recording: recording)
 
-        let fileSize = fileSize(of: mergedAudioURL)
+        let fileSize = fileSize(of: persistedMergedURL)
 
         // Step 2: Check if chunking is needed
-        if AudioChunker.shouldChunk(fileURL: mergedAudioURL) {
+        if AudioChunker.shouldChunk(fileURL: persistedMergedURL) {
             return try await transcribeWithChunks(
-                mergedAudioURL: mergedAudioURL,
+                mergedAudioURL: persistedMergedURL,
                 recording: recording,
                 fileSize: fileSize
             )
         } else {
             return try await transcribeSingle(
-                mergedAudioURL: mergedAudioURL,
+                mergedAudioURL: persistedMergedURL,
                 recording: recording
             )
         }
@@ -363,12 +359,14 @@ final class TranscriptionService {
         return try await exportMergedComposition(composition, micPath: micPath)
     }
 
-    /// Export the merged composition to a temporary file
+    /// Export the merged composition to the permanent recordings/ location
+    /// using the timestamp prefix pattern: {base}_merged.m4a
     private func exportMergedComposition(_ composition: AVMutableComposition, micPath: String) async throws -> URL {
-        // Create temp file in the same directory as the mic file
         let micURL = URL(fileURLWithPath: micPath)
         let directory = micURL.deletingLastPathComponent()
-        let mergedFileName = "merged_\(UUID().uuidString).\(AppConstants.audioFileExtension)"
+        let baseName = micURL.deletingPathExtension().lastPathComponent
+            .replacingOccurrences(of: "_mic", with: "")
+        let mergedFileName = "\(baseName)\(AppConstants.mergedFileSuffix).\(AppConstants.audioFileExtension)"
         let mergedURL = directory.appendingPathComponent(mergedFileName)
 
         guard let exportSession = AVAssetExportSession(
@@ -390,6 +388,48 @@ final class TranscriptionService {
         }
 
         return mergedURL
+    }
+
+    /// Persist the merged audio file for playback instead of deleting it.
+    /// If the URL is already a permanent file (e.g., fell back to system/mic directly),
+    /// returns it as-is. Otherwise, the export already wrote to the permanent path.
+    /// This method ensures the file exists at the expected _merged.m4a location.
+    private func persistMergedAudio(_ mergedAudioURL: URL, recording: RecordingInfo) -> URL {
+        let fileManager = FileManager.default
+        let recordingsDir = URL(fileURLWithPath: recording.micFilePath).deletingLastPathComponent()
+
+        // Extract the expected permanent path
+        let micURL = URL(fileURLWithPath: recording.micFilePath)
+        let baseName = micURL.deletingPathExtension().lastPathComponent
+            .replacingOccurrences(of: "_mic", with: "")
+        let permanentFileName = "\(baseName)\(AppConstants.mergedFileSuffix).\(AppConstants.audioFileExtension)"
+        let permanentURL = recordingsDir.appendingPathComponent(permanentFileName)
+
+        // If already at the permanent location, return as-is
+        if mergedAudioURL.path == permanentURL.path {
+            return permanentURL
+        }
+
+        // If the merged file is already in recordings/ but with a different name,
+        // rename it to the permanent pattern. If the source is the mic or system
+        // file directly (no merge happened), leave it and return the merged URL.
+        if mergedAudioURL.path == recording.micFilePath || mergedAudioURL.path == recording.systemFilePath {
+            // No merged file was created; source was used directly
+            return mergedAudioURL
+        }
+
+        // Move the temp merged file to the permanent location
+        do {
+            // Remove existing file at permanent location if any
+            if fileManager.fileExists(atPath: permanentURL.path) {
+                try fileManager.removeItem(at: permanentURL)
+            }
+            try fileManager.moveItem(at: mergedAudioURL, to: permanentURL)
+            return permanentURL
+        } catch {
+            // Move failed — return original URL so playback can still attempt it
+            return mergedAudioURL
+        }
     }
 
     // MARK: - Private: Send to whisperX
