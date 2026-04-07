@@ -79,7 +79,11 @@ Plans:
   3. Analysis results are clearly structured and formatted (not raw AI output)
   4. All results are saved as a Markdown file with YAML frontmatter (date, duration, topics) to the user's configured output folder
   5. User can copy individual analysis sections to clipboard from within the app
-**Plans**: TBD
+**Plans:** 2 plans
+
+Plans:
+- [ ] 04-01-PLAN.md — Analysis data models, AnalysisService with AI provider API call, and Markdown file writer
+- [ ] 04-02-PLAN.md — Wire analysis into lifecycle (auto-analysis), menu bar UI (6-state icon, progress, results, copy, retry), and settings language picker
 
 ### Phase 5: Dashboard + Playback
 **Goal**: Users can browse their recording history and review meetings with synced audio playback
@@ -112,6 +116,6 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 | 1. App Shell + Permissions + Settings | 3/3 | Complete   | 2026-04-06 |
 | 2. Audio Capture Engine | 3/3 | Complete   | 2026-04-06 |
 | 3. Transcription Pipeline | 0/2 | Not started | - |
-| 4. AI Analysis + Markdown Output | 0/? | Not started | - |
+| 4. AI Analysis + Markdown Output | 0/2 | Not started | - |
 | 5. Dashboard + Playback | 0/? | Not started | - |
 | 6. Global Hotkey + Distribution | 0/? | Not started | - |
