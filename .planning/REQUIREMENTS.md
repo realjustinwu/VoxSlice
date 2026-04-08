@@ -46,7 +46,7 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Distribution
 
-- [ ] **DIST-01**: App is distributable as an installable Mac application (DMG)
+- [x] **DIST-01**: App is distributable as an installable Mac application (DMG)
 
 ## v2 Requirements
 
@@ -107,7 +107,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | UIUX-02 | Phase 1 | Complete |
 | UIUX-03 | Phase 1 | Complete |
 | UIUX-04 | Phase 5 | Pending |
-| DIST-01 | Phase 6 | Pending |
+| DIST-01 | Phase 6 | Complete |
 
 **Coverage:**
 - v1 requirements: 23 total
