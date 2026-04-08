@@ -42,6 +42,7 @@
 				A1000132000000000000001 /* AudioPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000234000000000000001 /* AudioPlayerViewModel.swift */; };
 				A1000133000000000000001 /* MissingDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000235000000000000001 /* MissingDataView.swift */; };
 				A1000134000000000000001 /* TranscriptSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000236000000000000001 /* TranscriptSegmentView.swift */; };
+				A1000135000000000000001 /* GlobalHotkeyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000237000000000000001 /* GlobalHotkeyService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,7 @@
 				A1000234000000000000001 /* AudioPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerViewModel.swift; sourceTree = "<group>"; };
 				A1000235000000000000001 /* MissingDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissingDataView.swift; sourceTree = "<group>"; };
 				A1000236000000000000001 /* TranscriptSegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptSegmentView.swift; sourceTree = "<group>"; };
+				A1000237000000000000001 /* GlobalHotkeyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalHotkeyService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,7 @@
 					A1000222000000000000001 /* AudioChunker.swift */,
 					A1000223000000000000001 /* TranscriptionService.swift */,
 					A1000226000000000000001 /* RecordingHistoryService.swift */,
+					A1000237000000000000001 /* GlobalHotkeyService.swift */,
 				);
 				path = Services;
 				sourceTree = "<group>";
@@ -311,6 +314,7 @@
 					A1000132000000000000001 /* AudioPlayerViewModel.swift in Sources */,
 					A1000133000000000000001 /* MissingDataView.swift in Sources */,
 					A1000134000000000000001 /* TranscriptSegmentView.swift in Sources */,
+					A1000135000000000000001 /* GlobalHotkeyService.swift in Sources */,
 				);
 				runOnlyForDeploymentPostprocessing = 0;
 			};

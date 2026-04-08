@@ -9,7 +9,7 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Audio Recording
 
-- [ ] **RECD-01**: User can start/stop recording via global keyboard shortcut from any context
+- [x] **RECD-01**: User can start/stop recording via global keyboard shortcut from any context
 - [x] **RECD-02**: App records both microphone and system audio simultaneously
 - [x] **RECD-03**: Visual indicator shows recording status (menu bar icon + floating indicator)
 - [x] **RECD-04**: Recording continues when app window is hidden or minimized
@@ -46,7 +46,7 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Distribution
 
-- [ ] **DIST-01**: App is distributable as an installable Mac application (DMG)
+- [x] **DIST-01**: App is distributable as an installable Mac application (DMG)
 
 ## v2 Requirements
 
@@ -85,7 +85,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| RECD-01 | Phase 6 | Pending |
+| RECD-01 | Phase 6 | Complete |
 | RECD-02 | Phase 2 | Complete |
 | RECD-03 | Phase 2 | Complete |
 | RECD-04 | Phase 2 | Complete |
@@ -107,7 +107,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | UIUX-02 | Phase 1 | Complete |
 | UIUX-03 | Phase 1 | Complete |
 | UIUX-04 | Phase 5 | Pending |
-| DIST-01 | Phase 6 | Pending |
+| DIST-01 | Phase 6 | Complete |
 
 **Coverage:**
 - v1 requirements: 23 total

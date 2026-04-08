@@ -1,3 +1,4 @@
+import AppKit
 import Foundation
 
 enum AppConstants {
@@ -72,4 +73,9 @@ enum AppConstants {
 
     // Dashboard notification names
     static let dashboardDataDidChangeNotification = Notification.Name("voxslice.dashboardDataDidChange")
+
+    // Global hotkey settings (per D-07)
+    static let globalHotkeyKey = "globalHotkey"
+    static let defaultHotkeyModifiers: UInt = NSEvent.ModifierFlags.command.rawValue | NSEvent.ModifierFlags.shift.rawValue
+    static let defaultHotkeyKeyCode: UInt16 = 14  // R key (keyCode 14 = R on standard Mac keyboard)
 }
