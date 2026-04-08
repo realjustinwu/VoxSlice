@@ -43,7 +43,7 @@ struct TranscriptSegmentView: View {
             .background(
                 RoundedRectangle(cornerRadius: 6)
                     .fill(isHighlighted ? Color.accentColor.opacity(0.1) : Color.clear)
-            }
+            )
         }
         .buttonStyle(.plain)
         .accessibilityElement(children: .combine)

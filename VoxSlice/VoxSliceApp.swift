@@ -1,19 +1,20 @@
 import SwiftUI
 
 // AppDelegate manages the permissions window lifecycle and service dependencies
+@Observable
 @MainActor
 class AppDelegate: NSObject, NSApplicationDelegate {
-    let permissionManager = PermissionManager()
-    let storageService = StorageService()
-    private(set) lazy var audioCaptureService = AudioCaptureService(
+    @ObservationIgnored let permissionManager = PermissionManager()
+    @ObservationIgnored let storageService = StorageService()
+    @ObservationIgnored private(set) lazy var audioCaptureService = AudioCaptureService(
         storageService: storageService,
         permissionManager: permissionManager
     )
-    private(set) lazy var transcriptionService = TranscriptionService(
+    @ObservationIgnored private(set) lazy var transcriptionService = TranscriptionService(
         storageService: storageService
     )
-    private(set) lazy var analysisService = AnalysisService(storageService: storageService)
-    private(set) lazy var recordingCoordinator: RecordingCoordinator = {
+    @ObservationIgnored private(set) lazy var analysisService = AnalysisService(storageService: storageService)
+    @ObservationIgnored private(set) lazy var recordingCoordinator: RecordingCoordinator = {
         RecordingCoordinator(
             audioCaptureService: audioCaptureService,
             storageService: storageService,
@@ -22,11 +23,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             analysisService: analysisService
         )
     }()
-    private(set) lazy var recordingHistoryService = RecordingHistoryService(
+    @ObservationIgnored private(set) lazy var recordingHistoryService = RecordingHistoryService(
         storageService: storageService
     )
-    var permissionsWindow: NSWindow?
-    var dashboardWindow: NSWindow?
+    @ObservationIgnored var permissionsWindow: NSWindow?
+    @ObservationIgnored var dashboardWindow: NSWindow?
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         // Per D-16: Show permissions window on first launch if any permission missing
@@ -146,6 +147,7 @@ struct VoxSliceApp: App {
     var body: some Scene {
         MenuBarExtra("VoxSlice", systemImage: menuBarIcon) {
             MenuBarView(coordinator: appDelegate.recordingCoordinator)
+                .environment(appDelegate)
         }
         .menuBarExtraStyle(.menu)
 

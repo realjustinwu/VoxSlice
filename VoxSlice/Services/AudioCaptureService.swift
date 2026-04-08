@@ -510,7 +510,7 @@ private class AudioStreamOutput: NSObject, SCStreamOutput, SCStreamDelegate {
         }
     }
     // MARK: - SCStreamOutput
-    func streamOutput(_ stream: SCStream, didOutputSampleBuffer sampleBuffer: CMSampleBuffer, of type: SCStreamOutputType) {
+    func stream(_ stream: SCStream, didOutputSampleBuffer sampleBuffer: CMSampleBuffer, of type: SCStreamOutputType) {
         guard type == .audio else { return }
         guard let service = service else { return }
         // Extract audio buffer from CMSampleBuffer
