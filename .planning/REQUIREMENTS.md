@@ -9,7 +9,7 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Audio Recording
 
-- [ ] **RECD-01**: User can start/stop recording via global keyboard shortcut from any context
+- [x] **RECD-01**: User can start/stop recording via global keyboard shortcut from any context
 - [x] **RECD-02**: App records both microphone and system audio simultaneously
 - [x] **RECD-03**: Visual indicator shows recording status (menu bar icon + floating indicator)
 - [x] **RECD-04**: Recording continues when app window is hidden or minimized
@@ -85,7 +85,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| RECD-01 | Phase 6 | Pending |
+| RECD-01 | Phase 6 | Complete |
 | RECD-02 | Phase 2 | Complete |
 | RECD-03 | Phase 2 | Complete |
 | RECD-04 | Phase 2 | Complete |

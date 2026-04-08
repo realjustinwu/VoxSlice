@@ -111,7 +111,7 @@ Plans:
 **Plans:** 2 plans
 
 Plans:
-- [ ] 06-01-PLAN.md — GlobalHotkeyService with NSEvent monitor, hotkey recorder in Settings, toggle recording
+- [x] 06-01-PLAN.md — GlobalHotkeyService with NSEvent monitor, hotkey recorder in Settings, toggle recording
 - [ ] 06-02-PLAN.md — DMG build script with create-dmg for distributable Mac app installation
 
 ## Progress
