@@ -108,7 +108,11 @@ Plans:
   1. User can press a global keyboard shortcut from any application context to start or stop recording
   2. User can configure the global hotkey binding in settings
   3. User can install the app from a DMG file on a Mac
-**Plans**: TBD
+**Plans:** 2 plans
+
+Plans:
+- [ ] 06-01-PLAN.md — GlobalHotkeyService with NSEvent monitor, hotkey recorder in Settings, toggle recording
+- [ ] 06-02-PLAN.md — DMG build script with create-dmg for distributable Mac app installation
 
 ## Progress
 
@@ -122,4 +126,4 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 | 3. Transcription Pipeline | 0/2 | Not started | - |
 | 4. AI Analysis + Markdown Output | 0/2 | Not started | - |
 | 5. Dashboard + Playback | 0/3 | Not started | - |
-| 6. Global Hotkey + Distribution | 0/? | Not started | - |
+| 6. Global Hotkey + Distribution | 0/2 | Not started | - |
