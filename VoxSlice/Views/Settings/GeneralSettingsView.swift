@@ -3,6 +3,7 @@ import SwiftUI
 struct GeneralSettingsView: View {
     @Bindable var storageService: StorageService
     @Bindable var analysisService: AnalysisService
+    @Bindable var globalHotkeyService: GlobalHotkeyService
     @State private var outputFolderPath: String = ""
     @State private var analysisLanguage: String = UserDefaults.standard.string(forKey: AppConstants.analysisLanguageKey) ?? "auto"
 

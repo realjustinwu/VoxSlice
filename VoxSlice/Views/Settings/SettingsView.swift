@@ -4,10 +4,11 @@ struct SettingsView: View {
     @Bindable var storageService: StorageService
     @Bindable var transcriptionService: TranscriptionService
     @Bindable var analysisService: AnalysisService
+    @Bindable var globalHotkeyService: GlobalHotkeyService
 
     var body: some View {
         TabView {
-            GeneralSettingsView(storageService: storageService, analysisService: analysisService)
+            GeneralSettingsView(storageService: storageService, analysisService: analysisService, globalHotkeyService: globalHotkeyService)
                 .tabItem {
                     Label("General", systemImage: "gearshape")
                 }

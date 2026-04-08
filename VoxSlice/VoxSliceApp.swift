@@ -25,6 +25,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     private(set) lazy var recordingHistoryService = RecordingHistoryService(
         storageService: storageService
     )
+    private(set) lazy var globalHotkeyService = GlobalHotkeyService(
+        recordingCoordinator: recordingCoordinator
+    )
     var permissionsWindow: NSWindow?
     var dashboardWindow: NSWindow?
 
@@ -153,7 +156,8 @@ struct VoxSliceApp: App {
             SettingsView(
                 storageService: appDelegate.storageService,
                 transcriptionService: appDelegate.transcriptionService,
-                analysisService: appDelegate.analysisService
+                analysisService: appDelegate.analysisService,
+                globalHotkeyService: appDelegate.globalHotkeyService
             )
         }
     }
